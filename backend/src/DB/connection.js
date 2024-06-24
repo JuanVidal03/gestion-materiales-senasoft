@@ -6,7 +6,7 @@ export const dbConnection = () => {
 
        const db = dbConfig();
         db.connect((error) => {
-            error ? console.log('Error de conexción a la DB', error) : console.log('<< DB conectada exitosamente! >>');
+            error ? console.log('Error de conexción a la DB', error) : console.log('<< DB conectada exitosamente >>');
         });
 
     } catch (error) {
