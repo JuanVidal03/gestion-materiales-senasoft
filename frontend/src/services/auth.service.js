@@ -9,6 +9,6 @@ export const login = async(username, password) => {
         return user;
         
     } catch (error) {
-        console.log("Error login", error);
+        console.log("Error al loggearse a la aplicacion", error);
     }
 }

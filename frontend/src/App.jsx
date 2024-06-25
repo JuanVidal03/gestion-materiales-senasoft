@@ -5,18 +5,22 @@ import './App.css'
 const PublicRoutes = lazy(() => import('./routes/public.routes.jsx'));
 const PrivateRoutes = lazy(() => import('./routes/private.routes.jsx'));
 
-// const Loader = lazy(() => import('./components/loader/Loader.jsx'));
 import Loader from "./components/loader/Loader.jsx";
+const GlobalContextProvider = lazy(() => import("./context/Global.context.jsx"));
 
 
 function App() {
 
   return (
     <Suspense fallback={<Loader/>}>
-      <BrowserRouter>
-        <PublicRoutes />
-        <PrivateRoutes />
-      </BrowserRouter>
+      {/* context */}
+      <GlobalContextProvider>
+        {/* navegacion */}
+        <BrowserRouter>
+            <PublicRoutes />
+            <PrivateRoutes />
+        </BrowserRouter>
+      </GlobalContextProvider>
     </Suspense>
   )
 }

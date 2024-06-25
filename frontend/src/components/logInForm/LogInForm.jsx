@@ -2,11 +2,13 @@ import './logInForm.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faXTwitter, faGoogle } from "@fortawesome/free-brands-svg-icons"
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 
 import { login } from '../../services/auth.service.js';
+
+import { GolbalContext } from '../../context/Global.context.jsx';
 
 const LogInForm = () => {
 
@@ -14,19 +16,22 @@ const LogInForm = () => {
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
+    const { setUser, setIsAuthenticated } = useContext(GolbalContext); // contexto de usuario
 
     const handleSubmit = async() => {
 
         try {
             
-            const user = await login(username, password);
-            console.log(user);
-
-            if (!user) {
+            const authUser = await login(username, password);
+            
+            if (!authUser) {
                 toast.error('Usuario o contraseña incorrectos.');
             }
 
-            user.status === 200 && navigate('/');
+            setUser(authUser.data);
+            setIsAuthenticated(true);
+
+            authUser.status === 200 && navigate('/');
 
         } catch (error) {
             console.log(error);
