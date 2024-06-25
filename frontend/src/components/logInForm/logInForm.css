@@ -1,0 +1,62 @@
+.loginForm{
+    width: 30%;
+    height: calc(100vh - 2rem);
+    background-color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loginForm-welcome-message{
+    padding-bottom: 2rem;
+}
+.loginForm-welcome-message p{
+    color: #464646;
+}
+.logInForm-input-container{
+    display: flex;
+    flex-direction: column;
+    padding: .7rem 0;
+    gap: .5rem;
+}
+.logInForm-input-container input{
+    padding: 1rem .5rem;
+    transition: all ease .3s;
+    border-radius: 10px;
+    border: solid 2px #e4e3e3;
+}
+.logInForm-input-container input:focus{
+    outline: none;
+    background-color: rgba(197, 194, 197, 0.533);
+}
+.loginForm-submit{
+    width: 100%;
+    background-color: #0A5736;
+    color: #fff;
+    padding: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: all ease .3s;
+    margin-top: 1rem;
+}
+.loginForm-submit:hover{
+    box-shadow: 0 0 10px #0a5736a0;
+    letter-spacing: 1px;
+}
+.loginForm-icon-container{
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: solid 2px #e4e3e3 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.loginForm-Icon{
+    font-size: 1.5rem;
+    color: #0A5736;
+    cursor: pointer;
+}
