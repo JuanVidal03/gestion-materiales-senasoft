@@ -57,7 +57,6 @@ export const login = (req, res) => {
     try {
 
         const db = dbConfig();
-
         // verificar que el usuario existe
         db.query(`SELECT * FROM usuarios WHERE (username = ? OR email = ?)`, [username, email], async (error, results) => {
 
@@ -75,7 +74,12 @@ export const login = (req, res) => {
                     { expiresIn: "1h" },
                     (err, token) => {
                         err && res.status(400).json({ message: 'Error al generar token de ingreso', err });
-                        res.cookie("token", token);
+                        
+                        res.cookie("token", token, {
+                            httpOnly: false,
+                            secure: true,
+                            sameSite: "none"
+                        });
                         res.status(200).json({ user, token });
                     }
                 );
@@ -104,5 +108,34 @@ export const logout = (req, res) => {
     } catch (error) {
         console.log('<< Error al salir de la aplicacion >>', error);
         res.status(500).json({ message: 'Error al salir de la aplicacion.', error: error.message });
+    }
+}
+
+
+export const verifyToken = async(req, res) => {
+    
+    
+    try {
+        const { token } = req.cookies;
+        if(!token) return res.status(400).json({message: "Sin autorizacion"})
+
+        const db = dbConfig();
+
+        jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+            if(err) return res.status(400).json({message:err});
+
+            db.query("SELECT * FROM usuarios WHERE id = ?", [user.id], (error, user) => {
+                error && res.status(400).json({message: error});
+                
+                if(!user) return res.status(400).json({message: "Usuario no encontrado"});
+
+                return res.status(200).json(user);
+            })
+            
+        })
+        
+    } catch (error) {
+        console.log("Error al verificar el token", error);
+        res.status(500).json({message: "Error al verificar el token"});
     }
 }

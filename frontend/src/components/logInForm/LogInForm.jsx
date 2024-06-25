@@ -2,7 +2,7 @@ import './logInForm.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faXTwitter, faGoogle } from "@fortawesome/free-brands-svg-icons"
 
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +21,6 @@ const LogInForm = () => {
     const handleSubmit = async() => {
 
         try {
-            
             const authUser = await login(username, password);
             
             if (!authUser) {
@@ -30,7 +29,6 @@ const LogInForm = () => {
 
             setUser(authUser.data);
             setIsAuthenticated(true);
-
             authUser.status === 200 && navigate('/');
 
         } catch (error) {
