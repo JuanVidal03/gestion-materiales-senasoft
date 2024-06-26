@@ -20,6 +20,8 @@ app.use(cookieParser());
 
 import authRouter from "./routes/auth.routes.js";
 app.use('/api',authRouter);
+import materialesRouter from "./routes/materiales.routes.js";
+app.use('/api', materialesRouter);
 
 
 const server = app.listen(port, () => {
