@@ -1,0 +1,18 @@
+.logo-sena-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+.logo-sena-container img{
+    width: 70%;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 100%;
+}
+.sidebar-container h5{
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+}

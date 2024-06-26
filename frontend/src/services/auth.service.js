@@ -13,13 +13,24 @@ export const login = async(username, password) => {
     }
 }
 
-export const verifyToken = () => {
+export const verifyToken = async() => {
     try {
 
-        const response = axios.get('/verify-token');
+        const response = await axios.get('/verify-token');
         return response;
 
     } catch (error) {
         console.log("Error al verificar el token", error);
+    }
+}
+
+export const logout = async() => {
+    try {
+        
+        const response = await axios.post('/logout');
+        return response;
+
+    } catch (error) {
+        console.log("Error al cerrar sesion", error);
     }
 }

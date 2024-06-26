@@ -1,15 +1,18 @@
-import { useContext } from 'react';
+import { useContext, lazy, Suspense } from 'react';
 
 import { GolbalContext } from '../../context/Global.context.jsx';
 
+const Loader = lazy(() => import("../../components/loader/Loader.jsx"));
+const LoggedLayout = lazy(() => import("../../layout/loggedLayout/Logged.layout.jsx"));
+
+
 const Home = () => {
-
-    const { user } = useContext(GolbalContext);
-
+    
     return (
-        <div>
-            <h1>Necesitas estar loggeado para ver esta vista</h1>
-        </div>
+        <Suspense fallback={<Loader/>}>
+            <LoggedLayout>
+            </LoggedLayout>
+        </Suspense>
     );
 }
 

@@ -1,0 +1,38 @@
+.navbar{
+    background-color: #fff;
+    width: 100%;
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-welcome{
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.user-badge{
+    display: flex;
+    background-color: #0A5736;
+    padding: .5rem 1rem;
+    gap: 1rem;
+    border-radius: 10px;
+}
+.logout-icon{
+    background-color: #0A5736;
+    color: #fff;
+    padding: .5rem;
+    border-radius: 100px;
+}
+.user-interactions{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+.user-icon{
+    color: #fff;
+}
+.user-badge p{
+    color: #fff;
+}

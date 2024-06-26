@@ -22,17 +22,19 @@ const LogInForm = () => {
 
         try {
             const authUser = await login(username, password);
+            console.log(authUser.data.user);
             
             if (!authUser) {
                 toast.error('Usuario o contraseña incorrectos.');
             }
 
-            setUser(authUser.data);
+            setUser(authUser.data.user);
             setIsAuthenticated(true);
             authUser.status === 200 && navigate('/');
 
         } catch (error) {
             console.log(error);
+            setUser(null);
         }
     }
 
