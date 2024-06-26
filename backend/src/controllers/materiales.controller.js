@@ -16,6 +16,28 @@ export const allMateriales = (req, res) => {
     }
 }
 
+export const materialById = (req, res) => {
+
+    const db = dbConfig();
+    const { id } = req.params;
+
+    try {
+        
+        db.query("SELECT * FROM materiales WHERE id = ? LIMIT 1", [id], (error, materiales) => {
+            
+            if(error) return res.status(400).json({message: `Error al obtener el material con id: ${id}`});
+            if(materiales.length === 0) return res.status(400).json({message: `El material con id: ${id} no existe`});
+            
+            res.status(200).json(materiales[0]);
+
+        });
+
+    } catch (error) {
+        console.log("Error al el material");
+        res.status(500).json({message: "Error al el material", error});
+    }
+}
+
 export const createMaterial = (req, res) => {
 
     const { title, description } = req.body;
