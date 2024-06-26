@@ -38,7 +38,7 @@ export const register = async (req, res) => {
             (err, token) => {
 
                 err && res.status(400).json({ message: 'Error al generar token de ingreso', err })
-                res.status(200).json({ user, token });
+                return res.status(200).json({ user, token });
             }
         );
 
