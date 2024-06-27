@@ -16,7 +16,9 @@ const LoggedLayout = ({children}) => {
                 </div>
                 <div className='logged-layout-content'>
                     <Navbar/>
-                    {children}
+                    <section className='logged-layout-content-container'>
+                        {children}
+                    </section>
                 </div>
             </div>
         </Suspense>

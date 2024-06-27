@@ -3,14 +3,11 @@ import './login.css';
 
 const Login = () => {
 
-    document.title = "Ingresa!"
+    document.title = "Ingresa - Gestor de Materiales";
 
     return (
         <div className="login">
             <LogInForm />
-            <div>
-
-            </div>
         </div>
     );
 }

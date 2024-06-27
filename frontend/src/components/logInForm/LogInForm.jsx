@@ -30,7 +30,7 @@ const LogInForm = () => {
 
             setUser(authUser.data.user);
             setIsAuthenticated(true);
-            authUser.status === 200 && navigate('/');
+            authUser.status === 200 && navigate('/usuarios');
 
         } catch (error) {
             console.log(error);

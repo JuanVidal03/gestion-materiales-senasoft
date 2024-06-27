@@ -1,0 +1,38 @@
+.border-table, .user-table th, .user-table td{
+    border: solid 1px #000;
+    border-collapse: collapse;
+}
+.user-table{
+    margin-top: 1rem;
+    width: 100%;
+}
+.user-table th, .user-table td{
+    padding: .5rem;
+    text-align: center;
+}
+.user-table-tr{
+    background-color: #0A5736;
+    color: #fff;
+}
+.user-table-icons-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.user-table-icon-update{
+    cursor: pointer;
+    color: rgb(18, 18, 163);
+}
+.user-table-icon-trash{
+    cursor: pointer;
+    color: rgb(206, 30, 30);
+}
+.user-table tbody tr{
+    transition: all ease .3s;
+}
+.user-table tbody tr:hover{
+    background-color: rgba(128, 128, 128, 0.404);
+}

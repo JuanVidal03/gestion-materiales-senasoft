@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter } from "react-router-dom";
-import './App.css'
 
 const PublicRoutes = lazy(() => import('./routes/public.routes.jsx'));
 const PrivateRoutes = lazy(() => import('./routes/private.routes.jsx'));
