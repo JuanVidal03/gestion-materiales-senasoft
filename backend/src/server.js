@@ -1,9 +1,12 @@
 import express from "express";
+const app = express();
 import cors from "cors";
 import { config } from "dotenv";
-import cookieParser from "cookie-parser";
-const app = express();
 config();
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+const logger = morgan("dev");
+
 const port = process.env.SERVER_PORT || 8080;
 // conexion DB
 import { dbConnection } from "./DB/connection.js";
@@ -16,6 +19,8 @@ app.use(cors({
     credentials: true
 }));
 app.use(cookieParser());
+app.use(logger);
+
 
 
 import authRouter from "./routes/auth.routes.js";
