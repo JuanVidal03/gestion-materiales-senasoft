@@ -1,14 +1,13 @@
 import LoggedLayout from "../../layout/loggedLayout/Logged.layout.jsx";
 
-
-const Administradores = () => {
+const Entregas = () => {
     return (
         <LoggedLayout>
             <div>
-                Administradores
+                Entregas
             </div>
         </LoggedLayout>
     );
 }
 
-export default Administradores;
+export default Entregas;

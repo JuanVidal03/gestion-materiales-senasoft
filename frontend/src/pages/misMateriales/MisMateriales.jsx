@@ -1,14 +1,13 @@
 import LoggedLayout from "../../layout/loggedLayout/Logged.layout.jsx";
 
-
-const Estudiantes = () => {
+const MisMateriales = () => {
     return (
         <LoggedLayout>
             <div>
-                Estudiantes
+                Mis materiales
             </div>
         </LoggedLayout>
     );
 }
 
-export default Estudiantes;
+export default MisMateriales;

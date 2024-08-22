@@ -47,6 +47,9 @@ const GlobalContextProvider = ({children}) => {
 
     }, []);
 
+    // manejar estado del modal
+    const [stateModal, setStateModal] = useState(false);
+
     
     return (
         <GolbalContext.Provider value={{
@@ -55,7 +58,9 @@ const GlobalContextProvider = ({children}) => {
             isAuthenticated,
             setIsAuthenticated,
             loading,
-            setLoading
+            setLoading,
+            stateModal,
+            setStateModal
         }}>
             {children}
         </GolbalContext.Provider>
